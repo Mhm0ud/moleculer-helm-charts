@@ -2,8 +2,22 @@ apiVersion: v1
 entries:
   moleculer:
   - apiVersion: v2
+    appVersion: 0.1.2
+    created: "2021-07-13T10:08:30.135767+03:00"
+    dependencies:
+    - name: nats
+      repository: https://charts.bitnami.com/bitnami
+      version: 6.3.11
+    description: A Helm chart for Kubernetes
+    digest: 3a8fdf0f3176d526109bfef79f89ebf55368df19bcefb934577bae9c96e4ac2b
+    name: moleculer
+    type: application
+    urls:
+    - https://mhm0ud.github.io/helm-charts/moleculer-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
     appVersion: 0.1.1
-    created: "2021-07-13T08:45:19.480952+03:00"
+    created: "2021-07-13T10:08:30.127774+03:00"
     dependencies:
     - name: nats
       repository: https://charts.bitnami.com/bitnami
@@ -17,7 +31,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2021-07-13T08:45:19.471745+03:00"
+    created: "2021-07-13T10:08:30.112867+03:00"
     dependencies:
     - name: nats
       repository: https://charts.bitnami.com/bitnami
@@ -29,4 +43,4 @@ entries:
     urls:
     - https://mhm0ud.github.io/helm-charts/moleculer-0.1.0.tgz
     version: 0.1.0
-generated: "2021-07-13T08:45:19.458514+03:00"
+generated: "2021-07-13T10:08:30.097295+03:00"
