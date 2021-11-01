@@ -1,0 +1,95 @@
+# Default values for helm-charts.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+fullnameOverride : ""
+image:
+  repository: ""
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+container:
+  name: ""
+  separateContainer: false
+  services: []
+
+service:
+  type: NodePort
+  port: 80
+  name: api
+  targetport: 3000
+  namespace: default
+
+ingress:
+  enabled: true
+  annotations: 
+    kubernetes.io/ingress.global-static-ip-name: ""
+    networking.gke.io/managed-certificates: app-cert-managment
+    networking.gke.io/v1beta1.FrontendConfig: frontendconfig
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: ""
+      paths:
+      - path: /*
+        backend:
+          serviceName: api
+          servicePort: 80
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 2
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+environment:
+  env:
+    NODE_ENV: development
+    PORT: 3000
+    NAMESPACE: ""
+    LOGGER: Laboratory
+    LOGLEVEL: info
+    TRANSPORTER: nats://nats-client:4222
+    CACHER: memory
+    SERVICEDIR: build/services
+    MOLECULER_APM_ENABLE: 1
+    BASE_URL: ""
+  secret:
+    MONGO_URI: ""
+
+laboratory:
+  enabled: true
+  name: lab
+  type: LoadBalancer
+  port: 3210
+  targetport: 3210
+
+cron:
+  enabled: true
+  list:
+    - name: products-cron
+      schedule: "*/5 * * * *"
+      command: products.updateAll
+    - name: orders-cron
+      schedule: "*/30 * * * *"
+      command: orders.updateAll

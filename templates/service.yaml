@@ -1,0 +1,38 @@
+{{if has "api" .Values.container.services }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.service.name | quote }}
+  labels:
+      {{- include "helm-charts.labels" . | nindent 4 }}
+spec:
+  selector:
+     {{- include "helm-charts.selectorLabels" . | nindent 4 }}
+     {{- if .Values.container.separateContainer }}
+    service: api
+     {{ end }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetport }}
+  type: {{ .Values.service.type }}
+{{ end }}
+---
+{{ if .Values.laboratory.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.laboratory.name | quote }}
+  labels:
+      {{- include "helm-charts.labels" . | nindent 4 }}
+spec:
+  selector:
+     {{- include "helm-charts.selectorLabels" . | nindent 4 }}
+     {{- if .Values.container.separateContainer }}
+    service: lab
+     {{ end }}
+  ports:
+    - port: {{ .Values.laboratory.port }}
+      targetPort: {{ .Values.laboratory.targetport }}
+  type: {{ .Values.laboratory.type }}
+{{ end }}
+---

@@ -1,0 +1,32 @@
+{{ if .Values.cron.enabled }}
+{{ range .Values.cron.list }}
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .name }}
+  labels:
+     {{- include "helm-charts.labels" $ | nindent 4 }}
+spec:
+  schedule: "{{ .schedule }}"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: {{ $.Values.container.name }}
+              image: {{ $.Values.image.repository }}:{{ $.Values.image.tag }}
+              imagePullPolicy: IfNotPresent
+              envFrom:
+                - configMapRef:
+                    name: {{ $.Release.Name }}-configmap
+              args:
+                - /bin/sh
+                - -ec
+                - moleculer call {{ .command }} --ns={{ $.Values.environment.env.NAMESPACE }}
+          restartPolicy: OnFailure
+---
+{{ end }}
+{{ end }}
