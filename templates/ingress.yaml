@@ -2,6 +2,20 @@
 {{- $svcPort := .Values.service.port -}}
 {{- if .Values.ingress.enabled -}}
 #########################################################
+# Managed Certificate
+#########################################################
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: app-cert-managment
+  labels:
+    name: app-cert-managment
+spec:
+  domains:
+    {{- range .Values.ingress.hosts }}
+    - {{ .host | quote }}
+---
+#########################################################
 # FrontendConfig
 #########################################################
 apiVersion: networking.gke.io/v1beta1
