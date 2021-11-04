@@ -1,5 +1,5 @@
 {{- $fullName := .Values.service.name -}}
-{{- $svcPort := .Values.service.targetport -}}
+{{- $svcPort := .Values.service.port -}}
 {{- if .Values.ingress.enabled -}}
 #########################################################
 # Managed Certificate
