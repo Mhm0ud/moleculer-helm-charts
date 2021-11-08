@@ -85,7 +85,7 @@ laboratory:
   targetport: 3210
 
 cron:
-  enabled: true
+  enabled: false
   list:
     - name: products-cron
       schedule: "*/5 * * * *"
