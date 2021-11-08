@@ -6,10 +6,10 @@ replicaCount: 1
 
 fullnameOverride : ""
 image:
-  repository: ""
+  repository: "mhm0ud/moleculer"
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "latest"
 
 container:
   name: ""
