@@ -130,7 +130,7 @@ P.S. You have one cron job, you need to set the following values:
 `cron.list[0].schedule="*/5 * * * *"`
 `cron.list[0].command=products.updateAll`
 
-**This feature is disabled by default since 0.1.8**
+**This feature is disabled by default since 0.1.9**
 
 ### Secrets
 
