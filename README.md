@@ -57,154 +57,93 @@ See [Customizing the Chart Before Installing](https://helm.sh/docs/intro/using_h
 ```console
 helm show values helm-charts/moleculer
 ```
+### Container Name 
 
-### PodDisruptionBudget
+You'll need to set the following value:
 
-Note that the PodDisruptionBudget resource will only be defined if the replicaCount is greater than one,
-else it would make it impossible to evacuate a node. See [gh issue #7127](https://github.com/helm/charts/issues/7127) for more info.
+`container.name`
 
-### Prometheus Metrics
+### Static IP Name Key
 
-The Nginx ingress controller can export Prometheus metrics, by setting `controller.metrics.enabled` to `true`.
+GlobalStaticIPNameKey tells the Ingress controller to use a specific GCE static ip for its forwarding rules.
 
-You can add Prometheus annotations to the metrics service using `controller.metrics.service.annotations`.
-Alternatively, if you use the Prometheus Operator, you can enable ServiceMonitor creation using `controller.metrics.serviceMonitor.enabled`. And set `controller.metrics.serviceMonitor.additionalLabels.release="prometheus"`. "release=prometheus" should match the label configured in the prometheus servicemonitor ( see `kubectl get servicemonitor prometheus-kube-prom-prometheus -oyaml -n prometheus`)
+You'll need to set the following value:
 
-### ingress-nginx nginx\_status page/stats server
+`ingress.annotations."kubernetes\.io/ingress\.global-static-ip-name"="STATIC_IP_NAME"`
 
-Previous versions of this chart had a `controller.stats.*` configuration block, which is now obsolete due to the following changes in nginx ingress controller:
-
-- In [0.16.1](https://github.com/kubernetes/ingress-nginx/blob/main/Changelog.md#0161), the vts (virtual host traffic status) dashboard was removed
-- In [0.23.0](https://github.com/kubernetes/ingress-nginx/blob/main/Changelog.md#0230), the status page at port 18080 is now a unix socket webserver only available at localhost.
-  You can use `curl --unix-socket /tmp/nginx-status-server.sock http://localhost/nginx_status` inside the controller container to access it locally, or use the snippet from [nginx-ingress changelog](https://github.com/kubernetes/ingress-nginx/blob/main/Changelog.md#0230) to re-enable the http server
-
-### ExternalDNS Service Configuration
-
-Add an [ExternalDNS](https://github.com/kubernetes-incubator/external-dns) annotation to the LoadBalancer service:
+and it's will annotate the ingress as shown in the [gce-ingress](https://github.com/kubernetes/ingress-gce/blob/e1e23f6b97faadc1a33bdde5ecfed10ceedd535b/pkg/annotations/ingress.go):
 
 ```yaml
-controller:
-  service:
-    annotations:
-      external-dns.alpha.kubernetes.io/hostname: kubernetes-example.com.
+kind: 'Ingress'
+metadata:
+  name: 'ingress'
+  labels:
+    name: ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: 'STATIC_IP_NAME'
 ```
 
-### AWS L7 ELB with SSL Termination
+### Domain Name
 
-Annotate the controller as shown in the [nginx-ingress l7 patch](https://github.com/kubernetes/ingress-nginx/blob/main/deploy/aws/l7/service-l7.yaml):
+Hosts tells the Ingress controller to use a specific DNS ip for its forwarding rules.
 
-```yaml
-controller:
-  service:
-    targetPorts:
-      http: http
-      https: http
-    annotations:
-      service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:XX-XXXX-X:XXXXXXXXX:certificate/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXX
-      service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
-      service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
-      service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: '3600'
-```
+You'll need to set the following value:
 
-### AWS route53-mapper
+`ingress.hosts[0].host="api.example.com"`
 
-To configure the LoadBalancer service with the [route53-mapper addon](https://github.com/kubernetes/kops/tree/master/addons/route53-mapper), add the `domainName` annotation and `dns` label:
+### Image Repository URL
 
-```yaml
-controller:
-  service:
-    labels:
-      dns: "route53"
-    annotations:
-      domainName: "kubernetes-example.com"
-```
+This will define your application image repo URL.
 
-### Additional Internal Load Balancer
+You'll need to set the following value:
 
-This setup is useful when you need both external and internal load balancers but don't want to have multiple ingress controllers and multiple ingress objects per application.
+`image.repository`
 
-By default, the ingress object will point to the external load balancer address, but if correctly configured, you can make use of the internal one if the URL you are looking up resolves to the internal load balancer's URL.
+P.S. `image.repository="mhm0ud/moleculer"`
 
-You'll need to set both the following values:
+### Image Tag
 
-`controller.service.internal.enabled`
-`controller.service.internal.annotations`
+You'll need to set the following value:
 
-If one of them is missing the internal load balancer will not be deployed. Example you may have `controller.service.internal.enabled=true` but no annotations set, in this case no action will be taken.
+`image.tag`
 
-`controller.service.internal.annotations` varies with the cloud service you're using.
+P.S. `image.tag="latest"`
 
-Example for AWS:
+### Service Name
 
-```yaml
-controller:
-  service:
-    internal:
-      enabled: true
-      annotations:
-        # Create internal ELB
-        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-        # Any other annotation can be declared here.
-```
+You shaould include which services you need to deploy in this conatiner.
 
-Example for GCE:
+P.S. you have four services (api, service1, service2, service3), then you'll need to set the following value:
 
-```yaml
-controller:
-  service:
-    internal:
-      enabled: true
-      annotations:
-        # Create internal LB. More informations: https://cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balancing
-        # For GKE versions 1.17 and later
-        networking.gke.io/load-balancer-type: "Internal"
-        # For earlier versions
-        # cloud.google.com/load-balancer-type: "Internal"
-        
-        # Any other annotation can be declared here. 
-```
+`container.services="{api,service1,service2,service3}"`
 
-Example for Azure:
+### CRON Job Configuration
 
-```yaml
-controller:
-  service:
-      annotations:
-        # Create internal LB
-        service.beta.kubernetes.io/azure-load-balancer-internal: "true"
-        # Any other annotation can be declared here.
-```
+If you have a cron and you need to run it, you need to specify it in this value:
 
-Example for Oracle Cloud Infrastructure:
+`cron.enabled`
 
-```yaml
-controller:
-  service:
-      annotations:
-        # Create internal LB
-        service.beta.kubernetes.io/oci-load-balancer-internal: "true"
-        # Any other annotation can be declared here.
-```
+P.S. You have one cron job, you need to set the following values:
 
-An use case for this scenario is having a split-view DNS setup where the public zone CNAME records point to the external balancer URL while the private zone CNAME records point to the internal balancer URL. This way, you only need one ingress kubernetes object.
+`cron.enabled=true`
+`cron.list[0].name=cron1`
+`cron.list[0].schedule="*/5 * * * *"`
+`cron.list[0].command=products.updateAll`
 
-Optionally you can set `controller.service.loadBalancerIP` if you need a static IP for the resulting `LoadBalancer`.
+**This feature is disabled by default since 0.1.8**
 
-### Ingress Admission Webhooks
+### Secrets
 
-With nginx-ingress-controller version 0.25+, the nginx ingress controller pod exposes an endpoint that will integrate with the `validatingwebhookconfiguration` Kubernetes feature to prevent bad ingress from being added to the cluster.
-**This feature is enabled by default since 0.31.0.**
+If you need to add secrets to your cluster, you'll need to set the following value:
 
-With nginx-ingress-controller in 0.25.* work only with kubernetes 1.14+, 0.26 fix [this issue](https://github.com/kubernetes/ingress-nginx/pull/4521)
+`environment.secret.[YOUR_SECRET_NAME]`
 
-### Helm Error When Upgrading: spec.clusterIP: Invalid value: ""
+P.S. `environment.secret.MONGO_URI=MONGO_URL`
 
-If you are upgrading this chart from a version between 0.31.0 and 1.2.2 then you may get an error like this:
+### Environment Variables 
 
-```console
-Error: UPGRADE FAILED: Service "?????-controller" is invalid: spec.clusterIP: Invalid value: "": field is immutable
-```
+If you need to add environment variables to your cluster, you'll need to set the following value:
 
-Detail of how and why are in [this issue](https://github.com/helm/charts/pull/13646) but to resolve this you can set `xxxx.service.omitClusterIP` to `true` where `xxxx` is the service referenced in the error.
+`environment.env.[YOUR_ENVIRONMENT_VARIABLES_NAME]`
 
-As of version `1.26.0` of this chart, by simply not providing any clusterIP value, `invalid: spec.clusterIP: Invalid value: "": field is immutable` will no longer occur since `clusterIP: ""` will not be rendered.
+P.S. `environment.env.NAMESPACE="NAMESPACE"`
