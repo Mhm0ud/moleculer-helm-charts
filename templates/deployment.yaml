@@ -32,7 +32,13 @@ spec:
           env:
             - name: SERVICES
               value: {{ .Values.container.services | join ","}}{{ if .Values.laboratory.enabled }},lab {{ end }}
----
+          {{ if  .Values.lifecycle.postStart.enabled }}
+          lifecycle:
+            postStart:
+              exec:
+                command: [{{ .Values.lifecycle.postStart.script | quote }}]
+          {{ end }}
+      ---
 {{ else }}
 {{ range .Values.container.services }}
 #########################################################
