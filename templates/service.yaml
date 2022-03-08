@@ -36,3 +36,22 @@ spec:
   type: {{ .Values.laboratory.type }}
 {{ end }}
 ---
+{{ if .Values.graphql.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.graphql.name | quote }}
+  labels:
+      {{- include "helm-charts.labels" . | nindent 4 }}
+spec:
+  selector:
+     {{- include "helm-charts.selectorLabels" . | nindent 4 }}
+     {{- if .Values.container.separateContainer }}
+    service: graphql
+     {{ end }}
+  ports:
+    - port: {{ .Values.graphql.port }}
+      targetPort: {{ .Values.graphql.targetport }}
+  type: {{ .Values.graphql.type }}
+{{ end }}
+---

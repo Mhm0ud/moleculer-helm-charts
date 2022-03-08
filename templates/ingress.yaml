@@ -1,5 +1,7 @@
 {{- $fullName := .Values.service.name -}}
 {{- $svcPort := .Values.service.port -}}
+{{- $graphqlfullName := .Values.graphql.name  -}}
+{{- $graphqlsvcPort := .Values.graphql.port -}}
 {{- if .Values.ingress.enabled -}}
 #########################################################
 # Managed Certificate
@@ -30,7 +32,7 @@ spec:
     enabled: true
     responseCodeName: MOVED_PERMANENTLY_DEFAULT
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
@@ -58,9 +60,21 @@ spec:
         paths:
           {{- range .paths }}
           - path: {{ .path }}
+            pathType: ImplementationSpecific
             backend:
-              serviceName: {{ $fullName }}
-              servicePort: {{ $svcPort }}
+              service:
+                name: {{ $fullName }}
+                port:
+                  number: {{ $svcPort }}
+          {{- end }}
+          {{- if .Values.graphql.enabled }}
+          - path: /graphql
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ $graphqlfullName }}
+                port:
+                  number: {{ $graphqlsvcPort }}
           {{- end }}
     {{- end }}
 {{- end }}

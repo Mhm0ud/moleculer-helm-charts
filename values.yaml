@@ -35,9 +35,13 @@ ingress:
     - host: ""
       paths:
       - path: /*
+        pathType: ImplementationSpecific
         backend:
-          serviceName: api
-          servicePort: 3000
+          service:
+            name: api
+            port:
+              number: 3000
+
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
@@ -96,3 +100,7 @@ cron:
 
 graphql:
   enabled: false
+  name: graphql
+  type: NodePort
+  port: 8000
+  targetport: 8000
