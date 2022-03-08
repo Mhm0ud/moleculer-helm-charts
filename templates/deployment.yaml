@@ -32,7 +32,17 @@ spec:
           env:
             - name: SERVICES
               value: {{ .Values.container.services | join ","}}{{ if .Values.laboratory.enabled }},lab {{ end }}
----
+          {{- if  .Values.graphql.enabled }}
+          readinessProbe:
+            exec:
+              command:
+               - sh
+               - -c
+               - node_modules/@apollo/rover/run.js subgraph publish $APOLLO_GRAPH_REF  --schema public/schema.graphql --name $SUBGRAPH_NAME --routing-url $BASE_URL/graphql
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          {{ end }}
+      ---
 {{ else }}
 {{ range .Values.container.services }}
 #########################################################

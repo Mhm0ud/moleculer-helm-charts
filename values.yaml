@@ -93,3 +93,6 @@ cron:
     - name: orders-cron
       schedule: "*/30 * * * *"
       command: orders.updateAll
+
+graphql:
+  enabled: false
