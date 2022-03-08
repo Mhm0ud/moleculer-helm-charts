@@ -2,6 +2,7 @@
 {{- $svcPort := .Values.service.port -}}
 {{- $graphqlfullName := .Values.graphql.name  -}}
 {{- $graphqlsvcPort := .Values.graphql.port -}}
+{{- $graphqlEnabled := .Values.graphql.enabled -}}
 {{- if .Values.ingress.enabled -}}
 #########################################################
 # Managed Certificate
@@ -67,7 +68,7 @@ spec:
                 port:
                   number: {{ $svcPort }}
           {{- end }}
-          {{- if .Values.graphql.enabled }}
+          {{- if $graphqlEnabled }}
           - path: /graphql
             pathType: ImplementationSpecific
             backend:
