@@ -94,7 +94,5 @@ cron:
       schedule: "*/30 * * * *"
       command: orders.updateAll
 
-lifecycle:
-  postStart:
-    enabled: false
-    script: run some script
+graphql:
+  enabled: false
