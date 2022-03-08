@@ -41,6 +41,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ .Values.graphql.name | quote }}
+  annotations:
+    cloud.google.com/backend-config: '{"ports": {"8000":"my-backendconfig-graphql"}}'
   labels:
       {{- include "helm-charts.labels" . | nindent 4 }}
 spec:
