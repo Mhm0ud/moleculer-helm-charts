@@ -34,7 +34,7 @@ spec:
             - name: SERVICES
               value: {{ .Values.container.services | join ","}}{{- if .Values.laboratory.enabled -}}{{ $labname }}{{- end -}}
 ---
-{{- if .Values.graphql.enabled -}}
+{{ if .Values.graphql.enabled }}
 #########################################################
 # Graphql Drployment
 #########################################################
