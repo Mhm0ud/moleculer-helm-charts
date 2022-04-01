@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
      {{- include "helm-charts.selectorLabels" . | nindent 4 }}
-      app: baseApp
+    myapp: baseApp
      {{- if .Values.container.separateContainer }}
     service: api
      {{ end }}
@@ -28,7 +28,7 @@ metadata:
 spec:
   selector:
      {{- include "helm-charts.selectorLabels" . | nindent 4 }}
-      app: baseApp
+    myapp: baseApp
      {{- if .Values.container.separateContainer }}
     service: lab
      {{ end }}
