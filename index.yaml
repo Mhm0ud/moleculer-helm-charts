@@ -3,7 +3,17 @@ entries:
   moleculer:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.7105+03:00"
+    created: "2022-04-01T16:42:45.546558+03:00"
+    description: A Helm chart for Kubernetes
+    digest: e778154790209b551dca9db3535c0e19c1f3e1ece669d6c8a6ae40ef343276d3
+    name: moleculer
+    type: application
+    urls:
+    - moleculer-1.2.8.tgz
+    version: 1.2.8
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-04-01T16:42:45.545982+03:00"
     description: A Helm chart for Kubernetes
     digest: 1fe7c09287d666c27116531438330a28c8825ea02dedc99a134836b588a54f93
     name: moleculer
@@ -13,7 +23,7 @@ entries:
     version: 1.2.7
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.709813+03:00"
+    created: "2022-04-01T16:42:45.545545+03:00"
     description: A Helm chart for Kubernetes
     digest: 917f53deb8a1e8fdd7a0c058911a85ec2145667411afb20dfc2aa5e0e094656d
     name: moleculer
@@ -23,7 +33,7 @@ entries:
     version: 1.2.6
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.709277+03:00"
+    created: "2022-04-01T16:42:45.5451+03:00"
     description: A Helm chart for Kubernetes
     digest: 3a051ab3a6ce81041f66e14714f9354ed7a66bba3d9b19d0db8717a5968d7fff
     name: moleculer
@@ -33,7 +43,7 @@ entries:
     version: 1.2.5
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.708723+03:00"
+    created: "2022-04-01T16:42:45.544662+03:00"
     description: A Helm chart for Kubernetes
     digest: 68da81908b042169dc25ead5fb92c30aeac1861461edc6f8fcd7d98ad549fb5e
     name: moleculer
@@ -43,7 +53,7 @@ entries:
     version: 1.2.4
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.708151+03:00"
+    created: "2022-04-01T16:42:45.544197+03:00"
     description: A Helm chart for Kubernetes
     digest: 7a972157fc7194344a4801309c2efc3237eaf2f5987f2c4c19d5de482349a215
     name: moleculer
@@ -53,7 +63,7 @@ entries:
     version: 1.2.3
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.70694+03:00"
+    created: "2022-04-01T16:42:45.543613+03:00"
     description: A Helm chart for Kubernetes
     digest: 000abfaeca120f2e9eb43819598a4da60fbbf8a03cbbfa54fc2b118991345b19
     name: moleculer
@@ -63,7 +73,7 @@ entries:
     version: 1.2.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.706422+03:00"
+    created: "2022-04-01T16:42:45.542745+03:00"
     description: A Helm chart for Kubernetes
     digest: 6e975532ee0d20cea3d1bbd4602ed53c0b62ab0c35fd23a5d9488c2b2ce69a85
     name: moleculer
@@ -73,7 +83,7 @@ entries:
     version: 1.2.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.705863+03:00"
+    created: "2022-04-01T16:42:45.542345+03:00"
     description: A Helm chart for Kubernetes
     digest: 34cf52b68d8f2e4a70a161f1309bfba3e5ec507a3440871315259600f0771d11
     name: moleculer
@@ -83,7 +93,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.705302+03:00"
+    created: "2022-04-01T16:42:45.541946+03:00"
     description: A Helm chart for Kubernetes
     digest: 106e07357d31223602f4da8e76c5ac2b0419c8185e379c340972f53f0aa2b4ed
     name: moleculer
@@ -93,7 +103,7 @@ entries:
     version: 1.1.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.704735+03:00"
+    created: "2022-04-01T16:42:45.541543+03:00"
     description: A Helm chart for Kubernetes
     digest: 1429ed28a2a54a1f6c9b8cbee4ba7046df091861915821e6da2306129b03fb68
     name: moleculer
@@ -103,7 +113,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.704186+03:00"
+    created: "2022-04-01T16:42:45.541134+03:00"
     description: A Helm chart for Kubernetes
     digest: 7609b25d050980cab7e8be45ca338ae65b02c27feb902a47138705956eadb711
     name: moleculer
@@ -113,7 +123,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.703634+03:00"
+    created: "2022-04-01T16:42:45.540728+03:00"
     description: A Helm chart for Kubernetes
     digest: 3fa501867920daf23fdb3eff769437835aca8f5c5ab52989d2d62a2be905119f
     name: moleculer
@@ -123,7 +133,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.694495+03:00"
+    created: "2022-04-01T16:42:45.533843+03:00"
     description: A Helm chart for Kubernetes
     digest: 6e8a6d2c738f4f48034997e7224573cf70a746797fc8c3d903301cf82222e8cf
     name: moleculer
@@ -133,7 +143,7 @@ entries:
     version: 0.1.10
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.702999+03:00"
+    created: "2022-04-01T16:42:45.540253+03:00"
     description: A Helm chart for Kubernetes
     digest: 07872d830e0b4ac2916ba19f2bbc45086ecad4e1ff3da7e5c0e9d914002c3467
     name: moleculer
@@ -143,7 +153,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.702462+03:00"
+    created: "2022-04-01T16:42:45.539852+03:00"
     description: A Helm chart for Kubernetes
     digest: 74cc750797a3729c779b9283b86a0ca92017773b2790540559bf4485a8aa77a2
     name: moleculer
@@ -153,7 +163,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.701924+03:00"
+    created: "2022-04-01T16:42:45.539481+03:00"
     description: A Helm chart for Kubernetes
     digest: a4f6820cbdfa0b430106a9f774a65bcf8086bcd302c6f61b875c4d1b21af4117
     name: moleculer
@@ -163,7 +173,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.701327+03:00"
+    created: "2022-04-01T16:42:45.539004+03:00"
     description: A Helm chart for Kubernetes
     digest: 568a80f9ad1bf55966bdf94f748c20f80915e9f0a66ed5b56ad3d517f23f168b
     name: moleculer
@@ -173,7 +183,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.699537+03:00"
+    created: "2022-04-01T16:42:45.538495+03:00"
     description: A Helm chart for Kubernetes
     digest: 45ffdb964de0da2192ac7dc8a9eb65267dfeb2a347aec22014cf7e94756f7058
     name: moleculer
@@ -183,7 +193,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.698959+03:00"
+    created: "2022-04-01T16:42:45.536996+03:00"
     description: A Helm chart for Kubernetes
     digest: 2c1fccd1150c5efe1bbcd4feaf465bb6b855d13c4ec2a775ae2c2f8a15ca5758
     name: moleculer
@@ -193,7 +203,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-01T14:54:37.69847+03:00"
+    created: "2022-04-01T16:42:45.536615+03:00"
     description: A Helm chart for Kubernetes
     digest: 3c3004394efa6bf87296a0bd0a4c87967e0b1ad09d530cc26e03be73e3d0a765
     name: moleculer
@@ -203,7 +213,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 0.1.2
-    created: "2022-04-01T14:54:37.69795+03:00"
+    created: "2022-04-01T16:42:45.536228+03:00"
     dependencies:
     - name: nats
       repository: https://charts.bitnami.com/bitnami
@@ -217,7 +227,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 0.1.1
-    created: "2022-04-01T14:54:37.693864+03:00"
+    created: "2022-04-01T16:42:45.5334+03:00"
     dependencies:
     - name: nats
       repository: https://charts.bitnami.com/bitnami
@@ -231,7 +241,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2022-04-01T14:54:37.688407+03:00"
+    created: "2022-04-01T16:42:45.529621+03:00"
     dependencies:
     - name: nats
       repository: https://charts.bitnami.com/bitnami
@@ -243,4 +253,4 @@ entries:
     urls:
     - moleculer-0.1.0.tgz
     version: 0.1.0
-generated: "2022-04-01T14:54:37.683387+03:00"
+generated: "2022-04-01T16:42:45.526051+03:00"
