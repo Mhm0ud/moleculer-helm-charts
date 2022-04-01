@@ -1,39 +1,4 @@
 {{- $labname := ",lab" -}}
-{{ if not .Values.container.separateContainer }}
-#########################################################
-# API Gateway service
-#########################################################
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: {{ .Release.Name }}
-  labels:
-     {{- include "helm-charts.labels" . | nindent 4 }}
-spec:
-  selector:
-    matchLabels:
-      {{- include "helm-charts.selectorLabels" . | nindent 6 }}
-  replicas: {{ .Values.replicaCount }}
-  template:
-    metadata:
-      labels:
-        {{- include "helm-charts.selectorLabels" . | nindent 8 }}
-      annotations:
-        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
-        checksum/secrets: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
-    spec:
-      containers:
-        - name: {{ .Values.container.name }}
-          image: {{ .Values.image.repository }}:{{ $.Values.image.tag }}
-          envFrom:
-            - configMapRef:
-                name: {{ .Release.Name }}-configmap
-            - secretRef:
-                name: {{ .Release.Name }}-secret
-          env:
-            - name: SERVICES
-              value: {{ .Values.container.services | join ","}}{{- if .Values.laboratory.enabled -}}{{ $labname }}{{- end -}}
----
 {{ if .Values.graphql.enabled }}
 #########################################################
 # Graphql Drployment
@@ -79,8 +44,42 @@ spec:
                - node_modules/@apollo/rover/run.js subgraph publish $APOLLO_GRAPH_REF  --schema public/schema.graphql --name $SUBGRAPH_NAME --routing-url $BASE_URL/graphql
             initialDelaySeconds: 5
             periodSeconds: 5
-
 {{ end }}
+---
+{{ if not .Values.container.separateContainer }}
+#########################################################
+# API Gateway service
+#########################################################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+     {{- include "helm-charts.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "helm-charts.selectorLabels" . | nindent 6 }}
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        {{- include "helm-charts.selectorLabels" . | nindent 8 }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        checksum/secrets: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
+    spec:
+      containers:
+        - name: {{ .Values.container.name }}
+          image: {{ .Values.image.repository }}:{{ $.Values.image.tag }}
+          envFrom:
+            - configMapRef:
+                name: {{ .Release.Name }}-configmap
+            - secretRef:
+                name: {{ .Release.Name }}-secret
+          env:
+            - name: SERVICES
+              value: {{ .Values.container.services | join ","}}{{- if .Values.laboratory.enabled -}}{{ $labname }}{{- end -}}
 ---
 
 {{ else }}
