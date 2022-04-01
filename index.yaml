@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  moleculer:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-04-01T15:35:15.527128+03:00"
+    description: A Helm chart for Kubernetes
+    digest: d0ffec4d589ed6092a757399a524cb0c656a65902d3c30cf8bb9d298c61bcde1
+    name: moleculer
+    type: application
+    urls:
+    - moleculer-1.2.8.tgz
+    version: 1.2.8
+generated: "2022-04-01T15:35:15.525924+03:00"
