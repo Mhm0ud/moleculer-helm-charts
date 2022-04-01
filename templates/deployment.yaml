@@ -34,7 +34,7 @@ spec:
             - name: SERVICES
               value: {{ .Values.container.services | join ","}}{{- if .Values.laboratory.enabled -}}{{ $labname }}{{- end -}}
 ---
-{{- if .Values.graphql.enabled }}
+{{- if .Values.graphql.enabled -}}
 #########################################################
 # Graphql Drployment
 #########################################################
@@ -44,18 +44,18 @@ metadata:
   name: graphql
   labels:
      {{- include "helm-charts.labels" . | nindent 4 }}
-     service: "graphql"
+    service: graphql
 spec:
   selector:
     matchLabels:
       {{- include "helm-charts.selectorLabels" . | nindent 6 }}
-      service: "graphql"
+      service: graphql
   replicas: {{ .Values.replicaCount }}
   template:
     metadata:
       labels:
         {{- include "helm-charts.selectorLabels" . | nindent 8 }}
-        service: "graphql"
+        service: graphql
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
         checksum/secrets: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
