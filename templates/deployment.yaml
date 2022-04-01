@@ -79,8 +79,8 @@ spec:
                - node_modules/@apollo/rover/run.js subgraph publish $APOLLO_GRAPH_REF  --schema public/schema.graphql --name $SUBGRAPH_NAME --routing-url $BASE_URL/graphql
             initialDelaySeconds: 5
             periodSeconds: 5
-            
-{{- end -}}
+
+{{ end }}
 ---
 
 {{ else }}
