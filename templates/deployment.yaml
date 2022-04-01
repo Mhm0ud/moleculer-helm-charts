@@ -56,6 +56,7 @@ metadata:
   name: {{ .Release.Name }}
   labels:
      {{- include "helm-charts.labels" . | nindent 4 }}
+      app: baseApp
 spec:
   selector:
     matchLabels:
