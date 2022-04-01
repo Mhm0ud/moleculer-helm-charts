@@ -41,16 +41,16 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ .Values.graphql.name | quote }}
+  service: "graphql"
   annotations:
     cloud.google.com/backend-config: '{"ports": {"8000":"my-backendconfig-graphql"}}'
   labels:
       {{- include "helm-charts.labels" . | nindent 4 }}
+      service: "graphql"
 spec:
   selector:
      {{- include "helm-charts.selectorLabels" . | nindent 4 }}
-     {{- if .Values.container.separateContainer }}
-    service: graphql
-     {{ end }}
+    service: "graphql"
   ports:
     - port: {{ .Values.graphql.port }}
       targetPort: {{ .Values.graphql.targetport }}
