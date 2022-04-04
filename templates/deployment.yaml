@@ -82,7 +82,9 @@ spec:
                 name: {{ .Release.Name }}-secret
           env:
             - name: SERVICES
-              value: {{ .Values.container.services | join ","}}{{- if .Values.laboratory.enabled -}}{{ $labname }}{{- end -}}
+              value: {{ .Values.container.services | join ","}}{{- if .Values.laboratory.enabled -}}{{ $labname }}{{- end }}
+
+
 ---
 
 {{ else }}
