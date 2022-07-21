@@ -6,14 +6,13 @@ replicaCount: 1
 
 fullnameOverride : ""
 image:
-  repository: "mhm0ud/moleculer"
+  repository: "102355283528.dkr.ecr.eu-west-1.amazonaws.com/next-payments"
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
 container:
-  name: ""
-  separateContainer: false
+  name: "next-payment"
   services: []
 
 service:
@@ -24,7 +23,7 @@ service:
   namespace: default
 
 ingress:
-  enabled: true
+  enabled: false
   annotations: 
     kubernetes.io/ingress.global-static-ip-name: ""
     networking.gke.io/managed-certificates: app-cert-managment

@@ -1,55 +1,3 @@
-{{- $labname := ",lab" -}}
-{{ if .Values.graphql.enabled }}
-#########################################################
-# Graphql Drployment
-#########################################################
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: {{ .Release.Name }}-graphql
-  labels:
-     {{- include "helm-charts.labels" . | nindent 4 }}
-    service: graphql
-spec:
-  selector:
-    matchLabels:
-      {{- include "helm-charts.selectorLabels" . | nindent 6 }}
-      service: graphql
-  replicas: {{ .Values.replicaCount }}
-  template:
-    metadata:
-      labels:
-        {{- include "helm-charts.selectorLabels" . | nindent 8 }}
-        service: graphql
-      annotations:
-        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
-        checksum/secrets: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
-    spec:
-      containers:
-        - name: {{ .Values.container.name }}-grapgql
-          image: {{ .Values.image.repository }}:{{ $.Values.image.tag }}
-          envFrom:
-            - configMapRef:
-                name: {{ .Release.Name }}-configmap
-            - secretRef:
-                name: {{ .Release.Name }}-secret
-          env:
-            - name: SERVICES
-              value: graphql
-          readinessProbe:
-            exec:
-              command:
-               - sh
-               - -c
-               - node_modules/@apollo/rover/run.js subgraph publish $APOLLO_GRAPH_REF  --schema public/schema.graphql --name $SUBGRAPH_NAME --routing-url $BASE_URL/graphql
-            initialDelaySeconds: 5
-            periodSeconds: 5
-{{ end }}
----
-{{ if not .Values.container.separateContainer }}
-#########################################################
-# API Gateway service
-#########################################################
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -80,51 +28,12 @@ spec:
                 name: {{ .Release.Name }}-configmap
             - secretRef:
                 name: {{ .Release.Name }}-secret
-          env:
-            - name: SERVICES
-              value: {{ .Values.container.services | join ","}}{{- if .Values.laboratory.enabled -}}{{ $labname }}{{- end }}
-
-
----
-
-{{ else }}
-{{ range .Values.container.services }}
-#########################################################
-# API Gateway service
-#########################################################
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: {{ . }}
-  labels:
-     {{- include "helm-charts.labels" $ | nindent 4 }}
-    service: {{ . | quote }}
-spec:
-  selector:
-    matchLabels:
-      {{- include "helm-charts.selectorLabels" $ | nindent 6 }}
-      service: {{ . | quote }}
-  replicas: {{ $.Values.replicaCount }}
-  template:
-    metadata:
-      labels:
-        {{- include "helm-charts.selectorLabels" $ | nindent 8 }}
-        service: {{ . | quote }}
-      annotations:
-        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
-        checksum/secrets: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }} 
-    spec:
-      containers:
-        - name: {{ $.Values.container.name }}
-          image: {{ $.Values.image.repository }}:{{ $.Values.image.tag }}
           envFrom:
+            {{- if .Values.extraEnvVarsCM }}
             - configMapRef:
-                name: {{ $.Release.Name }}-configmap
+                name: {{ include "common.tplvalues.render" (dict "value" .Values.extraEnvVarsCM "context" $) }}
+            {{- end }}
+            {{- if .Values.extraEnvVarsSecret }}
             - secretRef:
-                name: {{ $.Release.Name }}-secret
-          env:
-            - name: SERVICES
-              value: {{ . }}
----
-{{ end }}
-{{ end }}
+                name: {{ include "common.tplvalues.render" (dict "value" .Values.extraEnvVarsSecret "context" $) }}
+            {{- end }}
