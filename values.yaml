@@ -74,20 +74,7 @@ environment:
     NAMESPACE: mp
     MC_TRANSPORTER_TYPE: "NATS"
     MC_TRANSPORTER: "{\"servers\":\"nats://nats-1658401573:4222\"}"
-    PAYTR_MERCHANT_ID: 114147
-    PAYTR_MERCHANT_KEY: B7hAE774pz3U4rgY
-    PAYTR_MERCHANT_SALT: 2DA22p9kqs6LypaT
-    PAYTR_PAYMENT_ACCOUNT: 2323832000011272031
-    PAYTR_MODE: Auto CreditCard
-    PAYTR_DEV_URL: "https://webhook.site/342838b9-de0e-4adc-87bd-da6d6db6ff61"
-    CHARGE_RESPONSE_TIMEOUT: 30
-    MOLECULER_APM_ENABLE: 1
-    TEST_PAYMENT_ENABLE: 1
-    PAYTR_BANK_CHARGES_RATE: "0.0314"
-    FAWATERAK_API_KEY: 8abf1e152baf4a424f835284bbc90916f1a9a957d75fe4efc8
-    FAWATERAK_BASE_URL: "http://fawaterkstage.com/api/v2"
-  secret:
-    MONGO_URI: "mongodb+srv://next-payment-db-usr-dev:wBSwfYxbGqMIPsPP@dev.tehlk.mongodb.net/test?retryWrites=true&w=majority"
+
 
 laboratory:
   enabled: false
