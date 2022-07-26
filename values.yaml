@@ -6,20 +6,20 @@ replicaCount: 1
 
 fullnameOverride : ""
 image:
-  repository: "102355283528.dkr.ecr.eu-west-1.amazonaws.com/next-payments"
+  repository: "102355283528.dkr.ecr.eu-west-1.amazonaws.com/next-payments-dev-ecr-o7hpzt982ux7-repository-6fn20nl9eito"
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "e4095b62"
 
 container:
   name: "next-payment"
   services: []
 
 service:
-  type: NodePort
-  port: 3000
+  type: LoadBalancer
+  port: 80
   name: api
-  targetport: 3000
+  targetport: 80
   namespace: default
 
 ingress:
@@ -67,21 +67,28 @@ autoscaling:
 
 environment:
   env:
+    PORT: 80
     NODE_ENV: development
-    PORT: 3000
-    NAMESPACE: ""
-    LOGGER: Laboratory
-    LOGLEVEL: info
-    TRANSPORTER: nats://nats-client:4222
-    CACHER: memory
-    SERVICEDIR: build/services
+    NAMESPACE: mp
+    MC_TRANSPORTER_TYPE: "NATS"
+    MC_TRANSPORTER: "{\"servers\":\"nats://nats-1658401573:4222\"}"
+    PAYTR_MERCHANT_ID: 114147
+    PAYTR_MERCHANT_KEY: B7hAE774pz3U4rgY
+    PAYTR_MERCHANT_SALT: 2DA22p9kqs6LypaT
+    PAYTR_PAYMENT_ACCOUNT: 2323832000011272031
+    PAYTR_MODE: Auto CreditCard
+    PAYTR_DEV_URL: "https://webhook.site/342838b9-de0e-4adc-87bd-da6d6db6ff61"
+    CHARGE_RESPONSE_TIMEOUT: 30
     MOLECULER_APM_ENABLE: 1
-    BASE_URL: ""
+    TEST_PAYMENT_ENABLE: 1
+    PAYTR_BANK_CHARGES_RATE: "0.0314"
+    FAWATERAK_API_KEY: 8abf1e152baf4a424f835284bbc90916f1a9a957d75fe4efc8
+    FAWATERAK_BASE_URL: "http://fawaterkstage.com/api/v2"
   secret:
-    MONGO_URI: ""
+    MONGO_URI: "mongodb+srv://next-payment-db-usr-dev:wBSwfYxbGqMIPsPP@dev.tehlk.mongodb.net/test?retryWrites=true&w=majority"
 
 laboratory:
-  enabled: true
+  enabled: false
   name: lab
   type: LoadBalancer
   port: 3210
