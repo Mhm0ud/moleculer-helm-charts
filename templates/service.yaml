@@ -1,4 +1,4 @@
-{{if has "api" .Values.container.services }}
+{{if .Values.hasendpoint }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -9,51 +9,9 @@ spec:
   selector:
      {{- include "helm-charts.selectorLabels" . | nindent 4 }}
     service: api
-     {{- if .Values.container.separateContainer }}
-    service: api
-     {{ end }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.targetport }}
   type: {{ .Values.service.type }}
-{{ end }}
----
-{{ if .Values.laboratory.enabled }}
-apiVersion: v1
-kind: Service
-metadata:
-  name: {{ .Values.laboratory.name | quote }}
-  labels:
-      {{- include "helm-charts.labels" . | nindent 4 }}
-spec:
-  selector:
-     {{- include "helm-charts.selectorLabels" . | nindent 4 }}
-    service: api
-     {{- if .Values.container.separateContainer }}
-    service: lab
-     {{ end }}
-  ports:
-    - port: {{ .Values.laboratory.port }}
-      targetPort: {{ .Values.laboratory.targetport }}
-  type: {{ .Values.laboratory.type }}
-{{ end }}
----
-{{ if .Values.graphql.enabled }}
-apiVersion: v1
-kind: Service
-metadata:
-  name: {{ .Values.graphql.name | quote }}
-  annotations:
-    cloud.google.com/backend-config: '{"ports": {"8000":"my-backendconfig-graphql"}}'
-  labels:
-      {{- include "helm-charts.labels" . | nindent 4 }}
-spec:
-  selector:
-     {{- include "helm-charts.selectorLabels" . | nindent 4 }}
-    service: graphql
-  ports:
-    - port: {{ .Values.graphql.port }}
-      targetPort: {{ .Values.graphql.targetport }}
-  type: {{ .Values.graphql.type }}
 {{ end }}
 ---
