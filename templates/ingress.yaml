@@ -1,8 +1,5 @@
 {{- $fullName := .Values.service.name -}}
 {{- $svcPort := .Values.service.port -}}
-{{- $graphqlfullName := .Values.graphql.name  -}}
-{{- $graphqlsvcPort := .Values.graphql.port -}}
-{{- $graphqlEnabled := .Values.graphql.enabled -}}
 {{- if .Values.ingress.enabled -}}
 #########################################################
 # Managed Certificate
@@ -46,6 +43,9 @@ spec:
     type: HTTP
     requestPath: /.well-known/apollo/server-health
 ---
+#########################################################
+# Ingress
+#########################################################
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -57,16 +57,6 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  {{- if .Values.ingress.tls }}
-  tls:
-    {{- range .Values.ingress.tls }}
-    - hosts:
-        {{- range .hosts }}
-        - {{ . | quote }}
-        {{- end }}
-      secretName: {{ .secretName }}
-    {{- end }}
-  {{- end }}
   rules:
     {{- range .Values.ingress.hosts }}
     - host: {{ .host | quote }}
@@ -80,15 +70,6 @@ spec:
                 name: {{ $fullName }}
                 port:
                   number: {{ $svcPort }}
-          {{- end }}
-          {{- if $graphqlEnabled }}
-          - path: /graphql
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: {{ $graphqlfullName }}
-                port:
-                  number: {{ $graphqlsvcPort }}
           {{- end }}
     {{- end }}
 {{- end }}
