@@ -3,5 +3,6 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-configmap
 data:
-   {{-  (.Files.Get "env.conf") | indent 2 }}
-  
+   {{- range $key, $val := .Values.environment.env }}
+    {{ $key | indent 2}}: {{ $val | quote }}
+  {{- end}}
