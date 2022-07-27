@@ -67,3 +67,5 @@ environment:
     NAMESPACE: mp
     MC_TRANSPORTER_TYPE: "NATS"
     MC_TRANSPORTER: "{\"servers\":\"nats://nats-1658401573:4222\"}"
+  secret:
+    MONGO_URI: ""
