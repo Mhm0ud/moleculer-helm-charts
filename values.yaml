@@ -6,13 +6,13 @@ replicaCount: 1
 
 fullnameOverride : ""
 image:
-  repository: "102355283528.dkr.ecr.eu-west-1.amazonaws.com/next-payments-dev-ecr-o7hpzt982ux7-repository-6fn20nl9eito"
+  repository: ""
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "e4095b62"
+  tag: ""
 
 container:
-  name: "next-payment"
+  name: ""
   services: []
 
 hasendpoint: true
@@ -66,6 +66,9 @@ environment:
     NODE_ENV: development
     NAMESPACE: mp
     MC_TRANSPORTER_TYPE: "NATS"
-    MC_TRANSPORTER: "{\"servers\":\"nats://nats-1658401573:4222\"}"
+    MC_TRANSPORTER: "{\"servers\":\"nats://nats.development.svc.cluster.local\"}"
+    TRANSPORTER: redis://redis-master.default.svc.cluster.local
+    REDIS_PORT: 6379
+    APOLLO_SCHEMA_REPORTING: false
   secret:
     MONGO_URI: ""
