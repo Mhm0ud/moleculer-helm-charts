@@ -71,4 +71,4 @@ environment:
     REDIS_PORT: 6379
     APOLLO_SCHEMA_REPORTING: false
   secret:
-    MONGO_URI: ""
+    secret: ""
