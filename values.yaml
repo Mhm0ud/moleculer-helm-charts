@@ -67,7 +67,7 @@ environment:
     NAMESPACE: mp
     MC_TRANSPORTER_TYPE: "NATS"
     MC_TRANSPORTER: "{\"servers\":\"nats://nats.development.svc.cluster.local\"}"
-    TRANSPORTER: redis://redis-master.default.svc.cluster.local
+    TRANSPORTER: redis://redis-master.test.svc.cluster.local
     REDIS_PORT: 6379
     APOLLO_SCHEMA_REPORTING: false
   secret:
