@@ -23,6 +23,7 @@ service:
   name: api
   targetport: 80
   namespace: default
+  healthcheckpath: /.well-known/apollo/server-health
 
 ingress:
   enabled: false

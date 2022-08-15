@@ -41,7 +41,7 @@ spec:
   healthCheck:
     checkIntervalSec: 15
     type: HTTP
-    requestPath: /.well-known/apollo/server-health
+    requestPath: {{ .Values.service.healthcheckpath }} 
 ---
 #########################################################
 # Ingress
