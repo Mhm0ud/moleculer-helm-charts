@@ -27,10 +27,16 @@ service:
 
 ingress:
   enabled: false
+  ManagedCertificate: 
+    name: &ManagedCertificate app-cert-managment
+  FrontendConfig:
+    name: &FrontendConfig FrontendConfig
+  BackendConfig:
+    name: my-backendconfig-graphql
   annotations: 
     kubernetes.io/ingress.global-static-ip-name: ""
-    networking.gke.io/managed-certificates: app-cert-managment
-    networking.gke.io/v1beta1.FrontendConfig: frontendconfig
+    networking.gke.io/managed-certificates: *ManagedCertificate
+    networking.gke.io/v1beta1.FrontendConfig: *FrontendConfig
   hosts:
     - host: ""
       paths:
