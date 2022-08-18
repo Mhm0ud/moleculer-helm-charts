@@ -5,7 +5,7 @@ metadata:
   name: {{ .Values.service.name | quote }}
   labels:
       {{- include "helm-charts.labels" . | nindent 4 }}
-  {{- if .Values.ingress.enabled -}}
+  {{- if .Values.ingress.enabled }}
   annotations:
     cloud.google.com/backend-config: {{ .Values.service.annotations | quote }}
   {{- end }}
