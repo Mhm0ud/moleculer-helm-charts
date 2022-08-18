@@ -21,7 +21,7 @@ service:
   type: LoadBalancer
   port: 80
   name: api
-  annotations: '{"ports": {"80":"my-backendconfig"}}'
+  annotations: "{\"ports\": {\"80\":\"my-backendconfig\"}}"
   targetport: 80
   namespace: default
   healthcheckpath: /.well-known/apollo/server-health
