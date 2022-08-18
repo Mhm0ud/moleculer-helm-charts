@@ -28,9 +28,9 @@ service:
 ingress:
   enabled: false
   ManagedCertificate: 
-    name: &ManagedCertificate app-cert-managment
+    name: &ManagedCertificate ""
   FrontendConfig:
-    name: &FrontendConfig FrontendConfig
+    name: &FrontendConfig ""
   BackendConfig:
     name: my-backendconfig-graphql
   annotations: 

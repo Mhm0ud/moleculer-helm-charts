@@ -5,6 +5,10 @@ metadata:
   name: {{ .Values.service.name | quote }}
   labels:
       {{- include "helm-charts.labels" . | nindent 4 }}
+  {{- if .Values.ingress.enabled -}}
+  annotations:
+    cloud.google.com/backend-config: {"ports":{"{{ .Values.service.port }}":"{{ .Values.ingress.BackendConfig.name }}"}}
+  {{- end }}
 spec:
   selector:
      {{- include "helm-charts.selectorLabels" . | nindent 4 }}
