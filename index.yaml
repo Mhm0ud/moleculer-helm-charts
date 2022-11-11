@@ -3,7 +3,7 @@ entries:
   moleculer:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.580576+03:00"
+    created: "2022-11-11T19:16:12.746557+03:00"
     description: A Helm chart for Kubernetes
     digest: 52ed0ecc821ccd997b472a5458aa46cf531b449e9c67f918610d3beaf6a040e5
     name: moleculer
@@ -13,7 +13,7 @@ entries:
     version: 1.2.11
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.57939+03:00"
+    created: "2022-11-11T19:16:12.74585+03:00"
     description: A Helm chart for Kubernetes
     digest: 99213015eb0018aa60d7b170b9dd6122084201bd9d75c28fdfdacb20773b29d6
     name: moleculer
@@ -23,7 +23,7 @@ entries:
     version: 1.2.10
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.585804+03:00"
+    created: "2022-11-11T19:16:12.751737+03:00"
     description: A Helm chart for Kubernetes
     digest: 6d3debb4de3453f99322e67994df1fdb759d9ed04d279ed73b7686dd49e3beec
     name: moleculer
@@ -33,7 +33,7 @@ entries:
     version: 1.2.9
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.585163+03:00"
+    created: "2022-11-11T19:16:12.751082+03:00"
     description: A Helm chart for Kubernetes
     digest: e778154790209b551dca9db3535c0e19c1f3e1ece669d6c8a6ae40ef343276d3
     name: moleculer
@@ -43,7 +43,7 @@ entries:
     version: 1.2.8
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.584509+03:00"
+    created: "2022-11-11T19:16:12.750439+03:00"
     description: A Helm chart for Kubernetes
     digest: 1fe7c09287d666c27116531438330a28c8825ea02dedc99a134836b588a54f93
     name: moleculer
@@ -53,7 +53,7 @@ entries:
     version: 1.2.7
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.583873+03:00"
+    created: "2022-11-11T19:16:12.749784+03:00"
     description: A Helm chart for Kubernetes
     digest: 917f53deb8a1e8fdd7a0c058911a85ec2145667411afb20dfc2aa5e0e094656d
     name: moleculer
@@ -63,7 +63,7 @@ entries:
     version: 1.2.6
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.583236+03:00"
+    created: "2022-11-11T19:16:12.749146+03:00"
     description: A Helm chart for Kubernetes
     digest: 3a051ab3a6ce81041f66e14714f9354ed7a66bba3d9b19d0db8717a5968d7fff
     name: moleculer
@@ -73,7 +73,7 @@ entries:
     version: 1.2.5
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.58258+03:00"
+    created: "2022-11-11T19:16:12.748511+03:00"
     description: A Helm chart for Kubernetes
     digest: 68da81908b042169dc25ead5fb92c30aeac1861461edc6f8fcd7d98ad549fb5e
     name: moleculer
@@ -83,7 +83,7 @@ entries:
     version: 1.2.4
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.581931+03:00"
+    created: "2022-11-11T19:16:12.747865+03:00"
     description: A Helm chart for Kubernetes
     digest: 7a972157fc7194344a4801309c2efc3237eaf2f5987f2c4c19d5de482349a215
     name: moleculer
@@ -93,7 +93,7 @@ entries:
     version: 1.2.3
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.58126+03:00"
+    created: "2022-11-11T19:16:12.747212+03:00"
     description: A Helm chart for Kubernetes
     digest: 000abfaeca120f2e9eb43819598a4da60fbbf8a03cbbfa54fc2b118991345b19
     name: moleculer
@@ -103,7 +103,7 @@ entries:
     version: 1.2.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.578734+03:00"
+    created: "2022-11-11T19:16:12.745114+03:00"
     description: A Helm chart for Kubernetes
     digest: 6e975532ee0d20cea3d1bbd4602ed53c0b62ab0c35fd23a5d9488c2b2ce69a85
     name: moleculer
@@ -113,7 +113,7 @@ entries:
     version: 1.2.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.578095+03:00"
+    created: "2022-11-11T19:16:12.743434+03:00"
     description: A Helm chart for Kubernetes
     digest: 34cf52b68d8f2e4a70a161f1309bfba3e5ec507a3440871315259600f0771d11
     name: moleculer
@@ -123,7 +123,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.577452+03:00"
+    created: "2022-11-11T19:16:12.742776+03:00"
     description: A Helm chart for Kubernetes
     digest: 106e07357d31223602f4da8e76c5ac2b0419c8185e379c340972f53f0aa2b4ed
     name: moleculer
@@ -133,7 +133,7 @@ entries:
     version: 1.1.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.576828+03:00"
+    created: "2022-11-11T19:16:12.742166+03:00"
     description: A Helm chart for Kubernetes
     digest: 1429ed28a2a54a1f6c9b8cbee4ba7046df091861915821e6da2306129b03fb68
     name: moleculer
@@ -143,7 +143,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.576182+03:00"
+    created: "2022-11-11T19:16:12.741556+03:00"
     description: A Helm chart for Kubernetes
     digest: 7609b25d050980cab7e8be45ca338ae65b02c27feb902a47138705956eadb711
     name: moleculer
@@ -153,7 +153,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.575541+03:00"
+    created: "2022-11-11T19:16:12.740946+03:00"
     description: A Helm chart for Kubernetes
     digest: 3fa501867920daf23fdb3eff769437835aca8f5c5ab52989d2d62a2be905119f
     name: moleculer
@@ -163,7 +163,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.566039+03:00"
+    created: "2022-11-11T19:16:12.730463+03:00"
     description: A Helm chart for Kubernetes
     digest: 6e8a6d2c738f4f48034997e7224573cf70a746797fc8c3d903301cf82222e8cf
     name: moleculer
@@ -173,7 +173,7 @@ entries:
     version: 0.1.10
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.574795+03:00"
+    created: "2022-11-11T19:16:12.740212+03:00"
     description: A Helm chart for Kubernetes
     digest: 07872d830e0b4ac2916ba19f2bbc45086ecad4e1ff3da7e5c0e9d914002c3467
     name: moleculer
@@ -183,7 +183,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.574185+03:00"
+    created: "2022-11-11T19:16:12.739621+03:00"
     description: A Helm chart for Kubernetes
     digest: 74cc750797a3729c779b9283b86a0ca92017773b2790540559bf4485a8aa77a2
     name: moleculer
@@ -193,7 +193,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.573586+03:00"
+    created: "2022-11-11T19:16:12.739062+03:00"
     description: A Helm chart for Kubernetes
     digest: a4f6820cbdfa0b430106a9f774a65bcf8086bcd302c6f61b875c4d1b21af4117
     name: moleculer
@@ -203,7 +203,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.572899+03:00"
+    created: "2022-11-11T19:16:12.738398+03:00"
     description: A Helm chart for Kubernetes
     digest: 568a80f9ad1bf55966bdf94f748c20f80915e9f0a66ed5b56ad3d517f23f168b
     name: moleculer
@@ -213,7 +213,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.571947+03:00"
+    created: "2022-11-11T19:16:12.73774+03:00"
     description: A Helm chart for Kubernetes
     digest: 45ffdb964de0da2192ac7dc8a9eb65267dfeb2a347aec22014cf7e94756f7058
     name: moleculer
@@ -223,7 +223,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.570673+03:00"
+    created: "2022-11-11T19:16:12.737075+03:00"
     description: A Helm chart for Kubernetes
     digest: 2c1fccd1150c5efe1bbcd4feaf465bb6b855d13c4ec2a775ae2c2f8a15ca5758
     name: moleculer
@@ -233,7 +233,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T18:58:06.570142+03:00"
+    created: "2022-11-11T19:16:12.736503+03:00"
     description: A Helm chart for Kubernetes
     digest: 3c3004394efa6bf87296a0bd0a4c87967e0b1ad09d530cc26e03be73e3d0a765
     name: moleculer
@@ -243,7 +243,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 0.1.2
-    created: "2022-11-11T18:58:06.569565+03:00"
+    created: "2022-11-11T19:16:12.735894+03:00"
     dependencies:
     - name: nats
       repository: https://charts.bitnami.com/bitnami
@@ -257,7 +257,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 0.1.1
-    created: "2022-11-11T18:58:06.565387+03:00"
+    created: "2022-11-11T19:16:12.729747+03:00"
     dependencies:
     - name: nats
       repository: https://charts.bitnami.com/bitnami
@@ -271,7 +271,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2022-11-11T18:58:06.561+03:00"
+    created: "2022-11-11T19:16:12.724906+03:00"
     dependencies:
     - name: nats
       repository: https://charts.bitnami.com/bitnami
@@ -286,7 +286,17 @@ entries:
   nextjs:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-11-11T18:58:06.593933+03:00"
+    created: "2022-11-11T19:16:12.759251+03:00"
+    description: A Helm chart for Kubernetes
+    digest: f8aacad2c02816ddf5b5f41e5753c01905ad12e5cde6fba004039d89f3f502ee
+    name: nextjs
+    type: application
+    urls:
+    - nextjs-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-11-11T19:16:12.758678+03:00"
     description: A Helm chart for Kubernetes
     digest: 60171ea893a59a88f3ebbac4bef9e1d0422bd88c72a466b0907986fd37ab664d
     name: nextjs
@@ -296,7 +306,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-11-11T18:58:06.59335+03:00"
+    created: "2022-11-11T19:16:12.758106+03:00"
     description: A Helm chart for Kubernetes
     digest: 1671a58f6692119ef827d50d6963b47ee49e87094d35e334879756e0907d60d5
     name: nextjs
@@ -306,7 +316,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-11-11T18:58:06.592768+03:00"
+    created: "2022-11-11T19:16:12.757546+03:00"
     description: A Helm chart for Kubernetes
     digest: 4b90d13e2abe5f58ea7a4912bc59d883710bd3b4514f328f25ddb8d1684141b2
     name: nextjs
@@ -316,7 +326,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-11-11T18:58:06.592202+03:00"
+    created: "2022-11-11T19:16:12.756983+03:00"
     description: A Helm chart for Kubernetes
     digest: e45d9ac2b7c7e50362a24acba371cb8985301669b2a855cb0010f289f4679e02
     name: nextjs
@@ -326,7 +336,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-11-11T18:58:06.591642+03:00"
+    created: "2022-11-11T19:16:12.756415+03:00"
     description: A Helm chart for Kubernetes
     digest: 09fccc3bf4faf2e0f403660e586c4d5c73279192be692cd1324a19c528a38bcf
     name: nextjs
@@ -336,7 +346,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-11-11T18:58:06.591059+03:00"
+    created: "2022-11-11T19:16:12.755841+03:00"
     description: A Helm chart for Kubernetes
     digest: 558c0bd20214e28e40a2614fbd5ac3becfc9c35a3143eef238aa2530efa561ae
     name: nextjs
@@ -346,7 +356,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-11-11T18:58:06.590465+03:00"
+    created: "2022-11-11T19:16:12.755264+03:00"
     description: A Helm chart for Kubernetes
     digest: 4b57aaa536ac006c5cba4d4a3fdd2c6a6958cd14933735ad17d0e466661d5011
     name: nextjs
@@ -356,7 +366,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-11-11T18:58:06.589851+03:00"
+    created: "2022-11-11T19:16:12.754715+03:00"
     description: A Helm chart for Kubernetes
     digest: 52c710cdf4603ca0ddcac4aa1207cdddde5d83c3717205c513e76cbf78872e74
     name: nextjs
@@ -366,7 +376,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-11-11T18:58:06.587714+03:00"
+    created: "2022-11-11T19:16:12.754099+03:00"
     description: A Helm chart for Kubernetes
     digest: c537c2250b5073e2aefedecb99f0a799ef9268010f6cd6ddffe809c9a41f39ab
     name: nextjs
@@ -376,7 +386,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-11-11T18:58:06.586862+03:00"
+    created: "2022-11-11T19:16:12.753536+03:00"
     description: A Helm chart for Kubernetes
     digest: 4885d05ff478aed9146fbf1e824fb207af7a21bcc4d7651295478c9c51e40558
     name: nextjs
@@ -386,7 +396,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-11-11T18:58:06.586338+03:00"
+    created: "2022-11-11T19:16:12.752955+03:00"
     description: A Helm chart for Kubernetes
     digest: 29d7f0e4ae1c816ef58791ff78771e6360b67aa580ecb629841997dd866d4471
     name: nextjs
@@ -394,4 +404,4 @@ entries:
     urls:
     - nextjs-0.1.1.tgz
     version: 0.1.1
-generated: "2022-11-11T18:58:06.556464+03:00"
+generated: "2022-11-11T19:16:12.720553+03:00"
