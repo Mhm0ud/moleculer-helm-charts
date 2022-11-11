@@ -15,7 +15,7 @@ container:
   name: ""
   services: []
   healthcheckenabled: false
-  healthcheckurl: /health
+  healthcheckurl: "/health"
   
 
 hasendpoint: true
