@@ -14,6 +14,9 @@ image:
 container:
   name: ""
   services: []
+  healthcheckenabled: false
+  healthcheckurl: /health
+  
 
 hasendpoint: true
 
