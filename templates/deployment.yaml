@@ -31,8 +31,8 @@ spec:
           {{- if .Values.container.healthcheckenabled }}
           livenessProbe:
             httpGet:
-              path: {{ .Values.service.targetport }}
-              port: {{ .Values.container.healthcheckurl | quote }}
+              path: {{ .Values.container.healthcheckurl | quote }}
+              port: {{ .Values.service.targetport }}
             initialDelaySeconds: 10
             periodSeconds: 5
           {{ end }}
